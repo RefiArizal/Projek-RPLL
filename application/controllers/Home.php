@@ -1,17 +1,15 @@
-<?php 
+<?php
+
 /**
  * 
  */
 class Home extends CI_Controller
 {
-	
-	function index()
+
+	public function index()
 	{
-		// $this->load->model('M_agenda');
-  //       $data['agenda'] = $this->M_agenda->tampildata();
-		// $this->load->view('templates/frontend/header');
-		$this->load->view('index');
-		// $this->load->view('templates/frontend/footer');
+		$data['produk'] = $this->M_produk->tampil();
+		$this->load->model('M_produk');
+		$this->load->view('index', $data);
 	}
 }
- ?>
