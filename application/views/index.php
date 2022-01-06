@@ -7,17 +7,14 @@
 
     <!--========== BOX ICONS ==========-->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!--========== CSS ==========-->
     <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/css/styles.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/fontawesome/css/all.css') ?>">
 
-    <style>
-        a:hover {
-            color: white
-        }
-    </style>
+
 
     <title>Desserthash.id</title>
 </head>
@@ -25,9 +22,19 @@
 <body>
 
     <!--========== SCROLL TOP ==========-->
-    <a href="#" class="scrolltop" id="scroll-top">
+    <!-- <a href="#" class="scrolltop" id="scroll-top">
         <i class='bx bx-chevron-up scrolltop__icon'></i>
-    </a>
+     </a> -->
+<a href="#">
+
+     <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
+          <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
+          <small class="mt-2 fw-bold">Hubungi Kami</small>
+      </div>
+</a>
+
+
+
 
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
@@ -51,12 +58,11 @@
 
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
 
-                </ul>
-            </div>
+               </ul>
+          </div>
 
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
+
+
         </nav>
     </header>
 
@@ -108,7 +114,7 @@
                 <?php foreach ($produk as $a) : ?>
                     <div class="menu__content">
                         <img src="<?= base_url('assets/frontend/img/varian/' . $a->gambar) ?>" alt="" class="menu__img">
-                        <h3><?= $a->nama_produk ?></h3>
+                        <h6><?= $a->nama_produk ?></h6>
                         <span><?= $a->ukuran ?></span>
                         <span>Rp <?= number_format($a->harga, 0, '.', '.') ?></span>
                         <a href="<?= base_url('cart/tambah/' . $a->id_produk) ?>" class="button menu__button"><i class='bx bx-cart'></i></a>
@@ -227,6 +233,10 @@
                 </ul>
             </div>
         </div>
+     <!-- <button type="button" class="btn btn-light fixed-bottom">Light
+     <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="30px">
+     </button> -->
+
 
         <p class="footer__copy">
             <marquee>&#169; 2021 Desserthash. Eat me and you will find Hapiness</marquee>
@@ -238,6 +248,8 @@
 
     <!--========== MAIN JS ==========-->
     <script src="<?= base_url('assets/frontend/assets/js/main.js') ?> "></script>
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,6 +23,18 @@
 
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/frontend/assets/css/cart.css') ?>">
 
+    <!--
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/css/styles.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/fontawesome/css/all.css') ?>"> -->
+
 
 
     <title>Desserthash.id</title>
@@ -29,9 +43,13 @@
 <body>
 
     <!--========== SCROLL TOP ==========-->
-    <a href="#" class="scrolltop" id="scroll-top">
-        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    <a href="#">
+        <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
+            <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
+            <small class="mt-2 fw-bold">Hubungi Kami</small>
+        </div>
     </a>
+
 
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
@@ -63,15 +81,18 @@
             </div>
         </nav>
     </header>
+
     <main class="l-main mb-5">
         <!--========== HOME ==========-->
         <section class="menu section bd-container" id="menu">
             <div class="d-flex justify-content-start">
                 <h2 class="home-title ms-5">Desserthash.id | </h2>
-                <h2>Checkout </h2>
+                <h2>&nbsp; Keranjang </h2>
 
             </div>
             <br><br>
+
+
 
 
             <div class="card">
@@ -79,8 +100,9 @@
                     <div class="col-md-12 cart">
                         <div class="title">
                             <div class="row">
-                                <div class="col">
-                                    <h4><b>Shopping Cart</b></h4>
+                                <div class="col d-flex justify-content-start">
+                                    <i class="fas fa-shopping-cart mt-1 active-link" style="font-size:20px;">&ensp;</i>
+                                    <h4 style="color:#069c54;"><b>Keranjang Saya </b></h4>
                                 </div>
                                 <div class="col align-self-center text-right text-muted">
                                     <?= $this->cart->total_items(); ?> Item
@@ -90,7 +112,7 @@
 
                         <div class="d-flex justify-content-evenly  mb-4 mt-4 fw-bold">
                             <div class="px-lg-5 mr-lg-5" id="produc">Produk</div>
-                            <div class="px-lg-5 ml-lg-1" id="quantity">Quantity</div>
+                            <div class="px-lg-5 ml-lg-1" id="quantity">Jumlah</div>
                             <div class="px-lg-5 ml-lg-5" id="prc">Harga</div>
                         </div>
 
@@ -99,8 +121,7 @@
                             <div class="row border-top border-bottom">
                                 <div class=" row main align-items-center ">
                                     <div class="col-2">
-                                        <img class="img-fluid" src="<?= base_url('assets/frontend/img/varian/' . $a['gambar']); ?>" />
-
+                                        <img class="img-fluid" src="<?= base_url('assets/frontend/img/varian/' . $a['gambar']) ?>" />
 
                                     </div>
                                     <div class="col-4">
@@ -120,7 +141,8 @@
                                     </div>
                                     <div class="col ">
                                         Rp <?= number_format($a['price'], 0, '.', '.') ?>
-                                        <a class="close mt-2" href="<?= base_url('cart/deletecart/' . $a['rowid']) ?>">&#10005;</a>
+                                        <!-- <a class="close mt-2" href="<?= base_url('cart/deletecart/' . $a['rowid']) ?>">&#10005;</a> -->
+                                        <a href="<?= base_url('cart/deletecart/' . $a['rowid']) ?>"><i class="fas fa-times float-right mt-1" style="color: red; font-size:18px;"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -134,25 +156,18 @@
                         </div>
 
                         <div class="col d-flex justify-content-end mb-3">
-                            <h3>Rp <?= number_format($this->cart->total(), 0, '.', '.'); ?></h3>
+                            <h3 style="color: #069c54;">Rp <?= number_format($this->cart->total(), 0, '.', '.'); ?></h3>
                         </div>
 
                         <div class="col d-flex justify-content-between">
-                            <a href="<?= base_url('home') ?>#menu" class="text-muted">&leftarrow; Back to shop</a>
+                            <a href="<?= base_url('home') ?>#menu" class="text-muted">&leftarrow; Kembali ke Menu</a>
                             <a href="<?= base_url('cart/cekout') ?>"><button type="button" class="btn btn-success">Checkout</button></a>
                         </div>
 
-                        <!-- <div class="row float-end">
-                                        <h6>Subtotal</h6>
-                                        <h3>Rp <?= number_format($this->cart->total(), 0, '.', '.'); ?></h3>
-                                        <!-- <a href="<?= base_url('cart/cekout') ?>" class="btn btn-success">Checkout</a> -->
+
                     </div>
 
-                    <!-- <div class=" row back-to-shop d-flex justify-content-between">
-								<a href="<?= base_url('home') ?>#menu"  class="text-muted">&leftarrow; Back to shop</a>
-                                        <button type="button" class="btn btn-success">Success</button>
-							</div>
-						</div> -->
+
         </section>
 
         <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -163,9 +178,9 @@
 
 
 
+        <!--
 
-
-        <!-- <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover">
             <tr>
                 <th>No</th>
                 <th>Nama Produk</th>
@@ -182,6 +197,7 @@
                     <td><?= $i++ ?></td>
                     <td><?= $a['name'] ?></td>
                     <td>Rp <?= number_format($a['price'], 0, '.', '.') ?></td>
+                    <td><img class="img-fluid" src="<?= base_url('assets/frontend/img/varian/' . $a['gambar']); ?>"/></td>
                     <td><?= $a['qty'] ?></td>
                     <?php if ($this->cart->has_options($a['rowid']) == TRUE) : ?>
 
