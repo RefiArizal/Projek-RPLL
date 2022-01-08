@@ -114,8 +114,8 @@
 
                         <div class="d-flex justify-content-evenly  mb-4 mt-4 fw-bold">
                             <div class="px-lg-5 mr-lg-5" id="produc">Produk</div>
-                            <div class="px-lg-5 ml-lg-1" id="quantity">Jumlah</div>
-                            <div class="px-lg-5 ml-lg-5" id="prc">Harga</div>
+                            <div class="px-lg-5 ml-lg-4" id="quantity">Jumlah</div>
+                            <div class="px-lg-5 ml-lg-5" id="prc">Harga/pcs</div>
                         </div>
 
 
@@ -232,9 +232,9 @@
                             <span><?= $a['name'] ?></span>
                             <?php if ($this->cart->has_options($a['rowid']) == TRUE) : ?>
 
-                                <span style="float: right;"> Rp <?= number_format($a['price'], 0, '.', '.') ?></span>
+                                <span style="float: right;"> Rp <?= number_format($a['subtotal'], 0, '.', '.') ?></span>
                                 <?php foreach ($this->cart->product_options($a['rowid']) as $option_name => $option_value) : ?>
-                                    <div class="row text-muted"><?= $option_value ?></div>
+                                    <div class="row text-muted"><?= $option_value ?> x <?= $a['qty'] ?></div>
                                 <?php endforeach; ?>
 
                             <?php endif; ?>

@@ -112,8 +112,8 @@
 
                         <div class="d-flex justify-content-evenly  mb-4 mt-4 fw-bold">
                             <div class="px-lg-5 mr-lg-5" id="produc">Produk</div>
-                            <div class="px-lg-5 ml-lg-1" id="quantity">Jumlah</div>
-                            <div class="px-lg-5 ml-lg-5" id="prc">Harga</div>
+                            <div class="px-lg-5 ml-lg-4" id="quantity">Jumlah</div>
+                            <div class="px-lg-5 ml-lg-5" id="prc">Harga/pcs</div>
                         </div>
 
 
@@ -152,7 +152,7 @@
                         <br><br><br>
 
                         <div class="col d-flex justify-content-end">
-                            <h6>Subtotal</h6>
+                            <h6>Grand Total</h6>
                         </div>
 
                         <div class="col d-flex justify-content-end mb-3">
