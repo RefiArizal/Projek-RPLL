@@ -35,8 +35,8 @@
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-info" name="CetakPeriode" target="_blank">Cetak Periode</button>
-                <a href="<?= base_url('saldo/cetaksemua'); ?>" class="btn btn-primary" target="_blank">Cetak Semua</a>
-                <a href="<?= base_url('saldo'); ?>" class="btn btn-secondary" style="text-decoration: none;color:#fff;">Batal</a></button>
+
+                <a href="<?= base_url('admin/print'); ?>" class="btn btn-secondary" style="text-decoration: none;color:#fff;">Batal</a></button>
             </div>
         </form>
     </div>
