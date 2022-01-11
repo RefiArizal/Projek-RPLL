@@ -169,10 +169,12 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/cetakperiode');
     }
-    public function cetaksemua()
+    public function hapus($id)
     {
-        $this->load->view('templates/admin/header');
-
-        $this->load->view('admin/cetaksemua');
+        $where = array('no_order' => $id);
+        $this->M_pesanan->delete_data($where, 'rincian');
+        $this->M_pesanan->delete_data($where, 'pesanan');
+        $this->session->set_flashdata('pesan', 'Data berhasil dihapus');
+        redirect('admin/pesanan');
     }
 }

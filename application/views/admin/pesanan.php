@@ -54,11 +54,30 @@
                                     <td><?= $ih['alamat'] ?></td>
                                     <td>
                                         <a href="<?= base_url('admin/detail/' . $ih['no_order']) ?>" class="btn btn-warning">Detail</a>
-
+                                        <a class="btn btn-danger" data-toggle="modal" data-target="#hapusModal<?= $ih['no_order']; ?>">Hapus</a>
                                     </td>
 
                                 </tr>
                                 <?php $i++ ?>
+                                <div class="modal fade" id="hapusModal<?= $ih['no_order']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span>&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Apakah anda yakin ingin menghapus orderan dengan nama <?= $ih['nama'] ?>?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type=" button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                <a href="<?= base_url('admin/hapus/' . $ih['no_order']) ?>" class="btn btn-danger">Yakin</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
 
                         </tbody>

@@ -25,13 +25,13 @@
     <!-- <a href="#" class="scrolltop" id="scroll-top">
         <i class='bx bx-chevron-up scrolltop__icon'></i>
      </a> -->
-<a href="#">
+    <a href="#">
 
-     <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
-          <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
-          <small class="mt-2 fw-bold">Hubungi Kami</small>
-      </div>
-</a>
+        <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
+            <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
+            <small class="mt-2 fw-bold">Hubungi Kami</small>
+        </div>
+    </a>
 
 
 
@@ -58,8 +58,8 @@
 
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
 
-               </ul>
-          </div>
+                </ul>
+            </div>
 
 
 
@@ -233,7 +233,7 @@
                 </ul>
             </div>
         </div>
-     <!-- <button type="button" class="btn btn-light fixed-bottom">Light
+        <!-- <button type="button" class="btn btn-light fixed-bottom">Light
      <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="30px">
      </button> -->
 
@@ -250,6 +250,29 @@
     <script src="<?= base_url('assets/frontend/assets/js/main.js') ?> "></script>
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- GetButton.io widget -->
+    <!-- <script type="text/javascript">
+        (function() {
+            var options = {
+                whatsapp: "6282111176680", // WhatsApp number
+                call_to_action: "Message us", // Call to action
+                position: "right", // Position may be 'right' or 'left'
+            };
+            var proto = document.location.protocol,
+                host = "getbutton.io",
+                url = proto + "//static." + host;
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = url + '/widget-send-button/js/init.js';
+            s.onload = function() {
+                WhWidgetSendButton.init(host, proto, options);
+            };
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        })();
+    </script> -->
+    <!-- /GetButton.io widget -->
 </body>
 
 </html>

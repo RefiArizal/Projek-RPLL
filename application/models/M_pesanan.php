@@ -2,6 +2,10 @@
 
 class M_pesanan extends CI_Model
 {
+    public function tampil()
+    {
+        return $this->db->get('pesanan')->result_array();
+    }
     public function tampil_pesanan()
     {
         $this->db->order_by('tanggal_pesan', 'desc');

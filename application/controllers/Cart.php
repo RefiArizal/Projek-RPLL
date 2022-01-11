@@ -68,13 +68,8 @@ class Cart extends CI_Controller
         $i = 1;
         $no = 1;
         foreach ($this->cart->contents() as $a) {
-            $list .= '*' . $no++ . '.' . $a['name'] . '*%0A';
-            if ($this->cart->has_options($a['rowid']) == TRUE) {
 
-                foreach ($this->cart->product_options($a['rowid']) as $option_name => $option_value) {
-                    $list .= 'Ukuran           : ' . $option_value . '%0A';
-                }
-            }
+
             foreach ($this->cart->product_options($a['rowid']) as $option_name => $option_value) {
 
                 $data = array(
@@ -88,25 +83,11 @@ class Cart extends CI_Controller
             }
 
             $this->db->insert('rincian', $data);
-
-
-
-            $list .= 'Jumlah            : ' . $a['qty'] . '%0A';
-            $list .= 'Harga Satuan  : Rp ' . number_format($a['price'], 0, '.', '.') . '%0A';
-            $list .= 'Harga Total     : Rp ' . number_format($a['subtotal'], 0, '.', '.') . '%0A';
         }
+        $list .= '*No Order Saya             :*%20' . $no_order . '%0A';
 
-        $list .= '%0A';
-        $list .= 'Total Belanja : Rp ' . number_format($this->cart->total(), 0, '.', '.') . '%0A';
-        $list .= '-------------------------%0A';
-        $list .= 'Data Penerima%0A';
-        $list .= '-------------------------%0A';
-        $list .= '*Nama             :*%20' . $nama . '%0A';
-        $list .= '*No. Telepon   :*%20' . $no_telp . '%0A';
-        $list .= '*Alamat           :*%20' . $data['alamat'] . '%0A%0A';
-        $list .= 'Harga Belum Termasuk Ongkir';
 
         $this->cart->destroy();
-        redirect("https://api.whatsapp.com/send/?phone=6282111176680&text=Halo kak, saya ingin order. %0A%0A" . $list);
+        redirect("https://api.whatsapp.com/send/?phone=6282111176680&text=" . $list);
     }
 }
