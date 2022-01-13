@@ -77,7 +77,9 @@ class Cart extends CI_Controller
                     'id_produk' => $a['id'],
                     'nama_produk' => $a['name'],
                     'ukuran' => $option_value,
-                    'qty' => $this->input->post('qty' . $i++)
+                    'harga' => $a['price'],
+                    'qty' => $this->input->post('qty' . $i++),
+                    'total_harga' => $a['subtotal']
 
                 );
             }
