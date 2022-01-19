@@ -28,7 +28,7 @@ class Cart extends CI_Controller
             'options' => array('Size' => $produk->ukuran)
         );
         $this->cart->insert($data);
-        $this->session->set_flashdata('berhasil', 'Berhasil Masuk Keranjang');
+        $this->session->set_flashdata('pesan', 'Berhasil Masuk Keranjang');
         return redirect('home');
     }
     public function deletecart($rowid)

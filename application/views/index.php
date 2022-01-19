@@ -40,8 +40,8 @@
   </a> -->
 
 
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 
-    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
@@ -114,9 +114,7 @@
         <section class="menu section bd-container" id="menu">
             <span class="section-subtitle">Spesial</span>
             <h2 class="section-title">Menu minggu ini</h2>
-            <?php if ($this->session->flashdata('berhasil')) : ?>
-                <h1><?= $this->session->flashdata('berhasil'); ?></h1>
-            <?php endif; ?>
+
             <div class="menu__container bd-grid">
                 <?php $i = 1 ?>
                 <?php foreach ($produk as $a) : ?>
@@ -180,7 +178,7 @@
 
                                                             <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                                         </div>
-                                                        <button type=" submit" value="5" class="cart-submit" id="tombol">Add to cart</button>
+                                                        <button type=" submit" value="5" class="cart-submit">Add to cart</button>
 
 
                                                     </form>
@@ -292,17 +290,17 @@
 </html>
 
 <script type="text/javascript">
-    <?php if ($this->session->flashdata('berhasil')) : ?>
+    <?php if ($this->session->flashdata('pesan')) : ?>
         $(document).ready(function() {
             swal({
                 title: "Done",
                 text: "Berhasil Masuk Keranjang",
+                timer: 1500,
+                showConfirmButton: false,
                 type: 'success'
-            })
+            });
         });
-
-
     <?php
-        $this->session->unset_userdata('berhasil');
+        $this->session->unset_userdata('pesan');
     endif; ?>
 </script>
