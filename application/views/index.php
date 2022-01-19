@@ -12,11 +12,17 @@
 
     <!--========== CSS ==========-->
     <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/css/styles.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/css/style2.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/css/core-style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/fontawesome/css/all.css') ?>">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 
     <title>Desserthash.id</title>
+    <link rel="icon" href="<?= base_url('assets/frontend/img/logo.jpg') ?>">
 </head>
 
 <body>
@@ -24,22 +30,22 @@
     <!--========== SCROLL TOP ==========-->
     <!-- <a href="#" class="scrolltop" id="scroll-top">
         <i class='bx bx-chevron-up scrolltop__icon'></i>
-     </a> -->
-    <a href="#">
+    </a> -->
+    <!-- <a href="#">
 
-        <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
-            <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
-            <small class="mt-2 fw-bold">Hubungi Kami</small>
-        </div>
-    </a>
-
-
+     <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
+          <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
+          <small class="mt-2 fw-bold">Hubungi Kami</small>
+      </div>
+  </a> -->
 
 
+
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
-            <a href="#" class="nav__logo">Desserthash.id</a>
+            <a href="#home" class="nav__logo">Desserthash.id</a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list ml-3">
@@ -108,74 +114,97 @@
         <section class="menu section bd-container" id="menu">
             <span class="section-subtitle">Spesial</span>
             <h2 class="section-title">Menu minggu ini</h2>
-
+            <?php if ($this->session->flashdata('berhasil')) : ?>
+                <h1><?= $this->session->flashdata('berhasil'); ?></h1>
+            <?php endif; ?>
             <div class="menu__container bd-grid">
                 <?php $i = 1 ?>
                 <?php foreach ($produk as $a) : ?>
                     <div class="menu__content">
-                        <img src="<?= base_url('assets/frontend/img/varian/' . $a->gambar) ?>" alt="" class="menu__img">
+                        <div class="product-img">
+                            <img src="<?= base_url('assets/frontend/img/varian/' . $a->gambar) ?>" alt="" class="menu__img">
+                            <div class="product-quicview">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detail<?= $a->id_produk ?>"><i class="fas fa-plus"></i></a>
+                            </div>
+                        </div>
                         <h6><?= $a->nama_produk ?></h6>
                         <span><?= $a->ukuran ?></span>
                         <span>Rp <?= number_format($a->harga, 0, '.', '.') ?></span>
-                        <a href="<?= base_url('cart/tambah/' . $a->id_produk) ?>" class="button menu__button"><i class='bx bx-cart'></i></a>
+                        <!--  <div class="quantity">
+                            <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+
+                            <input type="text" class="qty-text" id="qty" style="width:30px; text-align:center;" step="1" min="1" max="12" name="quantity" value="1">
+
+                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </div> -->
+                        <!--  <a href="<?= base_url('cart/tambah/' . $a->id_produk) ?>" class="button menu__button"><i class='bx bx-cart'></i></a> -->
                     </div>
                     <?php $i++ ?>
+                    <div class="modal fade" id="detail<?= $a->id_produk ?>" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                                <div class="modal-body">
+                                    <div class="quickview_body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-5">
+                                                    <div class="quickview_pro_img">
+                                                        <img src="<?= base_url('assets/frontend/img/varian/' . $a->gambar) ?>" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-7">
+                                                    <div class="quickview_pro_des">
+                                                        <h4 class="title"><?= $a->nama_produk ?></h4>
+                                                        <div class="top_seller_product_rating mb-15">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h5 class="price">Rp <?= number_format($a->harga, 0, '.', '.') ?></h5>
+
+                                                        <p><?= $a->ukuran ?></p>
+
+                                                    </div>
+                                                    <!-- Add to Cart Form -->
+                                                    <form class="cart" method="post" action="<?= base_url('cart/tambah/' . $a->id_produk) ?>">
+                                                        <div class="quantity">
+                                                            <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+
+                                                            <input class="form" type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="qty" value="1">
+
+                                                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                                        </div>
+                                                        <button type=" submit" value="5" class="cart-submit" id="tombol">Add to cart</button>
+
+
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php endforeach; ?>
             </div>
 
-            <!-- <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/milkbath.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Milkbath</h3>
-                    <span class="menu__detail">Big</span>
-                    <span class="menu__preci">Rp. 25000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
 
-                <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/chocovado.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Chocovado</h3>
-                    <span class="menu__detail">Small</span>
-                    <span class="menu__preci">Rp. 10000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
-                <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/chocovado.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Chocovado</h3>
-                    <span class="menu__detail">Big</span>
-                    <span class="menu__preci">Rp. 10000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
-
-                <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/tiramisu.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Tiramisu</h3>
-                    <span class="menu__detail">Small</span>
-                    <span class="menu__preci">Rp. 10000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
-                  <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/tiramisu.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Tiramisu</h3>
-                    <span class="menu__detail">Big</span>
-                    <span class="menu__preci">Rp. 25000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
-                <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/redvelvet.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Redvelvet</h3>
-                    <span class="menu__detail">Small</span>
-                    <span class="menu__preci">Rp. 10000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
-                <div class="menu__content">
-                    <img src="<?= base_url('assets/frontend/img/varian/redvelvet.jpg') ?>" alt="" class="menu__img">
-                    <h3 class="menu__name">Dessertbox-Redvelvet</h3>
-                    <span class="menu__detail">Big</span>
-                    <span class="menu__preci">Rp. 25000</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div> -->
-            <!--  <a href="menu.php" class="button">Lihat Semua Menu</a> -->
         </section>
+
+
+        <!-- ****** Quick View Modal Area Start ****** -->
+
+
+
+        <!-- ****** Quick View Modal Area End ****** -->
 
 
         <!--========== CONTACT US ==========-->
@@ -235,7 +264,7 @@
         </div>
         <!-- <button type="button" class="btn btn-light fixed-bottom">Light
      <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="30px">
-     </button> -->
+ </button> -->
 
 
         <p class="footer__copy">
@@ -248,31 +277,32 @@
 
     <!--========== MAIN JS ==========-->
     <script src="<?= base_url('assets/frontend/assets/js/main.js') ?> "></script>
+    <script src="<?= base_url('assets/js/wa.js') ?> "></script>
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <!-- GetButton.io widget -->
-    <!-- <script type="text/javascript">
-        (function() {
-            var options = {
-                whatsapp: "6282111176680", // WhatsApp number
-                call_to_action: "Message us", // Call to action
-                position: "right", // Position may be 'right' or 'left'
-            };
-            var proto = document.location.protocol,
-                host = "getbutton.io",
-                url = proto + "//static." + host;
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = url + '/widget-send-button/js/init.js';
-            s.onload = function() {
-                WhWidgetSendButton.init(host, proto, options);
-            };
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        })();
-    </script> -->
-    <!-- /GetButton.io widget -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
+
+
 </body>
 
 </html>
+
+<script type="text/javascript">
+    <?php if ($this->session->flashdata('berhasil')) : ?>
+        $(document).ready(function() {
+            swal({
+                title: "Done",
+                text: "Berhasil Masuk Keranjang",
+                type: 'success'
+            })
+        });
+
+
+    <?php
+        $this->session->unset_userdata('berhasil');
+    endif; ?>
+</script>

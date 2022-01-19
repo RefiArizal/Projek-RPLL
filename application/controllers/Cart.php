@@ -18,16 +18,18 @@ class Cart extends CI_Controller
     {
         $this->load->model('M_produk');
         $produk = $this->M_produk->tambahcart($id);
+        $quantity = $this->input->post('qty');
         $data = array(
             'id' => $produk->id_produk,
-            'qty'     => 1,
+            'qty'     => $quantity,
             'price'   => $produk->harga,
             'name'    => $produk->nama_produk,
             'gambar' => $produk->gambar,
             'options' => array('Size' => $produk->ukuran)
         );
         $this->cart->insert($data);
-        redirect('home');
+        $this->session->set_flashdata('berhasil', 'Berhasil Masuk Keranjang');
+        return redirect('home');
     }
     public function deletecart($rowid)
     {

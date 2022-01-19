@@ -14,7 +14,7 @@
                 <h1 style="font-size: large; margin-top: 10px;margin-left:15px;color: #4e4e4e;">Total Produk</h1>
                 <div class="card-body" style="font-size:25px;font-weight:bolder;color:#4e4e4e;"><?= $count_produk ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between bg-gradient-success">
-                    <a class="small text-white" style="margin-left:170px;text-decoration:none;" href="<?= base_url('admin/dataanak') ?>">Selengkapnya <i class="fas fa-chevron-circle-right"></i></a>
+                    <a class="small text-white" style="margin-left:170px;text-decoration:none;" href="<?= base_url('admin/produk') ?>">Selengkapnya <i class="fas fa-chevron-circle-right"></i></a>
 
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <h1 style="font-size: large; margin-top: 10px;margin-left:15px;color: #4e4e4e;">Total Pesanan</h1>
                 <div class="card-body" style="font-size:25px;font-weight:bolder;color:#4e4e4e;"><?= $count_pesanan ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between bg-gradient-danger">
-                    <a class="small text-white" style="margin-left:170px;text-decoration:none;" href="<?= base_url('admin/dataibuhamil') ?>">Selengkapnya <i class="fas fa-chevron-circle-right"></i></a>
+                    <a class="small text-white" style="margin-left:170px;text-decoration:none;" href="<?= base_url('admin/pesanan') ?>">Selengkapnya <i class="fas fa-chevron-circle-right"></i></a>
 
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <h1 style="font-size: large; margin-top: 10px;margin-left:15px;color: #4e4e4e;">Total Pemasukan</h1>
                 <div class="card-body" style="font-size:25px;font-weight:bolder;color:#4e4e4e;">Rp <?= number_format($total['total'], 0, ',', '.') ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between bg-gradient-primary">
-                    <a class="small text-white" style="margin-left:170px;text-decoration:none;" href="<?= base_url('admin/agenda') ?>">Selengkapnya <i class="fas fa-chevron-circle-right"></i></a>
+                    <a class="small text-white" style="margin-left:170px;text-decoration:none;" href="<?= base_url('admin/penjualan') ?>">Selengkapnya <i class="fas fa-chevron-circle-right"></i></a>
 
                 </div>
             </div>

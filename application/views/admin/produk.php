@@ -2,7 +2,6 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Produk</h1>
-    <?php $this->view('pesan'); ?>
     <a href="<?= base_url('admin/tambahdata/') ?>" class="btn btn-primary ml-5">Tambah Produk</a>
     <br>
     <br>

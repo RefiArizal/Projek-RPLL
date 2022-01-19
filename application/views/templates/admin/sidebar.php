@@ -49,6 +49,12 @@
                     <span>Laporan Penjualan</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -56,7 +62,7 @@
             <!-- Heading -->
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class=" sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

@@ -24,7 +24,7 @@
         </div>
         <br>
         <div style="width:20%;margin-left:2%">
-            <?php $this->view('pesan') ?>
+
         </div>
         <div class="card-body">
             <div class="table-responsive">

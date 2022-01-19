@@ -51,6 +51,8 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/backend/') ?>js/demo/datatables-demo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
 <script>
    $(document).ready(function() {
       $('#dataTable').DataTable();
@@ -59,3 +61,19 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+   <?php if ($this->session->flashdata('pesan')) : ?>
+      $(document).ready(function() {
+         swal({
+            title: "Done",
+            text: "<?= $this->session->flashdata('pesan'); ?>",
+            type: 'success'
+         })
+      });
+
+
+   <?php
+      $this->session->unset_userdata('pesan');
+   endif; ?>
+</script>

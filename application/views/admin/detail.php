@@ -30,45 +30,46 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <div>
 
-                    <table class="table table-bordered table-striped table-hover" cellpadding="10" id="dataTable">
-                        <thead>
+
+                <table class="table table-bordered table-striped table-hover" cellpadding="10" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+
+                            <th>Nama Produk yang Dipesan</th>
+                            <th>Ukuran</th>
+                            <th>Banyak Produk yang Dipesan</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1 ?>
+                        <?php foreach ($rincian as $ih) : ?>
                             <tr>
-                                <th>No</th>
+                                <td><?= $i++ ?></td>
 
-                                <th>Nama Produk yang Dipesan</th>
-                                <th>Ukuran</th>
-                                <th>Banyak Produk yang Dipesan</th>
-
+                                <td><?= $ih['nama_produk'] ?></td>
+                                <td><?= $ih['ukuran'] ?></td>
+                                <td><?= $ih['qty'] ?></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 1 ?>
-                            <?php foreach ($rincian as $ih) : ?>
-                                <tr>
-                                    <td><?= $i++ ?></td>
+                        <?php endforeach; ?>
 
-                                    <td><?= $ih['nama_produk'] ?></td>
-                                    <td><?= $ih['ukuran'] ?></td>
-                                    <td><?= $ih['qty'] ?></td>
-                                </tr>
-                            <?php endforeach; ?>
+                    </tbody>
 
-                        </tbody>
-
-                    </table>
-
-
-                    <!-- /.container-fluid -->
-
-                </div>
-
+                </table>
             </div>
 
+
+            <!-- /.container-fluid -->
+
+        </div>
+        <div class="card-footer">
+            <a href="<?= base_url('admin/pesanan') ?>" title="Kembali" class="btn btn-secondary">Kembali</a>
         </div>
 
-    </div>
 
-</div>
+
+
+    </div>
 </div>

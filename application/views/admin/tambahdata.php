@@ -49,7 +49,7 @@
         <div class="card-footer">
 
             <input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
-            <a href="<?= base_url('admin/agenda') ?>" title="Kembali" class="btn btn-secondary">Batal</a>
+            <a href="<?= base_url('admin/produk') ?>" title="Kembali" class="btn btn-secondary">Batal</a>
         </div>
         <?= form_close(); ?>
     </div>

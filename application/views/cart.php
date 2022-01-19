@@ -43,12 +43,12 @@
 <body>
 
     <!--========== SCROLL TOP ==========-->
-    <a href="#">
+    <!-- <a href="#">
         <div class="chat fixed-bottom end-0 d-flex justify-content-end   m-5">
             <img src="<?= base_url('assets/frontend/img/wa.png'); ?>" alt="" width="40px">
             <small class="mt-2 fw-bold">Hubungi Kami</small>
         </div>
-    </a>
+    </a> -->
 
 
     <!--========== HEADER ==========-->

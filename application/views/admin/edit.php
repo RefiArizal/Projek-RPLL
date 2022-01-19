@@ -4,6 +4,7 @@
             <h3 class="card-title">
                 <i class="fa fa-fw fa-table"></i> Detail Data
             </h3>
+
         </div>
 
         <!-- Page Heading -->
