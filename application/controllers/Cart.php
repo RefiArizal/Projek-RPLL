@@ -92,6 +92,6 @@ class Cart extends CI_Controller
 
 
         $this->cart->destroy();
-        redirect("https://api.whatsapp.com/send/?phone=6282111176680&text=" . $list);
+        redirect("https://api.whatsapp.com/send/?phone=6287770173111&text=" . $list);
     }
 }

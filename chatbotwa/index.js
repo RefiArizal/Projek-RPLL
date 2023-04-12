@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { send } = require('process');
+const { send } = require('process'); 
 const { Client, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal'); //pertemuan 2
 const { type } = require('os');
@@ -89,16 +89,19 @@ client.on('message', async msg => {
                             let qty = result[a].qty;
                             let harga = result[a].harga;
                             let totalHarga = result[a].total_harga;
+                            
                             let rupiah = convertRupiah.convert(totalHarga);
                             let rupiah1 = convertRupiah.convert(harga);
                             var rupiah2 = convertRupiah.convert(total);
+                            
+                            
                             pesan +=(namaProduk+ '\n Ukuran : ' + ukuran + '\n Jumlah : ' + qty  + '\n Harga Satuan : ' + rupiah1 + '\n Harga Total : ' + rupiah + '\n' )+'\n'
-
+                            
                         }
                         msg.reply(pesan +'*Grand Total :* '+rupiah2 + '\n-------------------\nData Penerima\n-------------------\n*Nama:* '+nama+'\n*Alamat :* '+alamat+'\n*No Telp :* '+no_telp+'\nApakah anda akan melanjutkan pesanan anda ? \nJawab *ya* atau *tidak*')
                     }
                 }
-            })
+            })  
         }else if(msg.body == 'ya'){
             msg.reply('Kamu belum memberikan nomor orderan, silahkan masukan no orderan dulu ya 👋')
         }
@@ -109,7 +112,8 @@ client.on('message', async msg => {
     }else if(msg.body == 'ya') {
         msg.reply('Maaf kami belum mengerti maksud anda :(')
     }
-});
+    
+    });
 
 // {
 //     var noOrder = null;
@@ -130,6 +134,7 @@ client.on('message', async msg => {
 //                     }
 //                 });
 // };
+            
 
 
 
@@ -137,7 +142,7 @@ client.on('message', async msg => {
 //     case 'transaksi':
 //         msg.reply('Selamat datang di dessert by Desserthash.id, untuk nominal pembayaran anda yakni \n ');
             //         case '1':
-            //         dessert.dessertList(function(result){
+            //         dessert.dessertList(function(result){    
             //             if(result && result != null){
             //             if(typeof result!=='undefined'){
             //                 for(var i=0; i<result.length; i++){
@@ -147,7 +152,7 @@ client.on('message', async msg => {
             //                 }
             //             }
             //             }
-
+                    
             //         });
             //         break;
             //         case '2':
